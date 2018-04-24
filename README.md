@@ -1,5 +1,6 @@
 # vueRoutesGenerator
-A generator to make the routes.js file for Vue.js
+A generator to make the routes.js file for Vue.js (WIP)
+* [Test the generator](http://vue-routes-generator.surge.sh/) - Test it here! (WIP)
 
 ## Usage
 * Input the Vue.js components names you want in the routes.js file in separate lines of the text area (You can use multi word names)
