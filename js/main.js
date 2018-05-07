@@ -1,6 +1,6 @@
-alert("WIP!\nThis application is under development\n" 
+/*alert("WIP!\nThis application is under development\n" 
 			+ "We still have so much to do, but you can get your basic \n"
-			+ "routes.js file without problem");
+			+ "routes.js file without problem");*/
 
 function capitalize(string) {
 		string = string.toLowerCase();
@@ -12,18 +12,23 @@ function decapitalize(string) {
 		return string.charAt(0).toLowerCase() + string.slice(1);
 }
 
-function stringToResult(string) {
-	// Output the array into the result text area
-	var resultTextArea = document.getElementById("resultTextArea");
-	resultTextArea.value = string;
+function copyTextToClipboard(text) {
+	var dummy = '<textarea id="dummy">' + text + '</textarea>';
+	$("body").append(dummy);
 
-/*	// Select it
-	resultTextArea.select();
-
-	// Copy its contents
+	$("#dummy").select();
 	document.execCommand("copy");
 
-	alert("Copied to clipboard!");*/
+	$("#dummy").remove();
+
+	alert("Copied!");
+}
+
+function stringToResult(string) {
+	var resultText = '<pre id="resultText">' + string + '</pre>';
+	$("#resultDiv").html(resultText);
+
+	//copyTextToClipboard($("#resultText").text());
 }
 
 // ============================================================================
