@@ -9,15 +9,12 @@ pre {
 	white-space: pre !important;*/
 }
 
+footer {
+	background-color: lightgray;
+	position: absolute;
+	bottom: 0;
+}
+
 #textArea {
 	height: 300px;
 }
-
-.btn {
-	margin-top: 10px;
-}
-
-.container-fluid {
-	margin-top: 10px;
-}
-
