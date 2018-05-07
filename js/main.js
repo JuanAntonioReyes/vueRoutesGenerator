@@ -95,8 +95,8 @@ function generateRoutes(components) {
 	for (var i = 0, l = components.length; i < l; i++) {
 		decapName = decapitalize(components[i].text);
 
-		routes += "\t{ path: '/" + decapName + "' , component: " + components[i].text 
-							+ " , name: '" + decapName + "Link'";
+		routes += "\t{ path: '/" + decapName + "' , component: "
+							+ components[i].text + " , name: '" + decapName + "Link'";
 	
 		if (components[i].children.length !== 0) {
 			routes += ",\n\t\tchildren: [\n";
