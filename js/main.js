@@ -17,13 +17,13 @@ function stringToResult(string) {
 	var resultTextArea = document.getElementById("resultTextArea");
 	resultTextArea.value = string;
 
-	// Select it
+/*	// Select it
 	resultTextArea.select();
 
 	// Copy its contents
 	document.execCommand("copy");
 
-	alert("Copied to clipboard!");
+	alert("Copied to clipboard!");*/
 }
 
 // ============================================================================
