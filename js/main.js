@@ -1,6 +1,6 @@
-alert("WIP!\nThis application is under development\n" 
+/*alert("WIP!\nThis application is under development\n" 
 			+ "We still have so much to do, but you can get your basic \n"
-			+ "routes.js file without problem");
+			+ "routes.js file without problem");*/
 
 function capitalize(string) {
 		string = string.toLowerCase();
@@ -12,27 +12,29 @@ function decapitalize(string) {
 		return string.charAt(0).toLowerCase() + string.slice(1);
 }
 
-function copyTextToClipboard(text) {
-	var dummy = '<textarea id="dummy">' + text + '</textarea>';
-	$("body").append(dummy);
+function copyResultToClipboard() {
+	var resultText = $("#resultText").text();
 
-	$("#dummy").select();
-	document.execCommand("copy");
+	if (resultText !== '') {
+		var dummy = '<textarea id="dummy">' + resultText + '</textarea>';
+		$("body").append(dummy);
 
-	$("#dummy").remove();
+		$("#dummy").select();
+		document.execCommand("copy");
 
-	alert("Copied!");
+		$("#dummy").remove();
+
+		alert("Copied!");
+	}
 }
 
-function stringToResult(string) {
-	var resultText = '<pre id="resultText">' + string + '</pre>';
-	$("#resultDiv").html(resultText);
-
-	//copyTextToClipboard($("#resultText").text());
+function stringToResult(text) {
+	$("#resultText").text(text);
 }
 
 // ============================================================================
 $('#btnProcess').click(buttonHandler);
+$('#btnCopy').click(copyResultToClipboard);
 // ============================================================================
 
 function buttonHandler(e) {

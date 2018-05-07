@@ -4,29 +4,25 @@
 	<meta charset="UTF-8">
 	<title>Vue.js routes.js generator</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css">
 	<script src="js/jquery-3.3.1.min.js"></script>
 </head>
 <body>
 
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-sm-10 offset-sm-1">
-				<textarea class="form-control" id="textArea" rows="10"></textarea>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-sm-12 text-center">
-				<br>
-				<button id="btnProcess" class="btn btn-primary" type="button" >
-					Process component names<!--  and copy! -->
+			<div class="col-sm-12 col-md-6">
+				<textarea id="textArea" class="form-control"></textarea>
+				<button id="btnProcess" class="btn btn-primary" type="button">
+					Generate routes.js
 				</button>
-				<br><br>
 			</div>
-		</div>
-		<div class="row">
-			<div class="col-sm-12" id="resultDiv">
+			<div class="col-sm-12 col-md-6" id="resultDiv">
+				<pre id="resultText"></pre>
+				<button id="btnCopy" class="btn btn-primary" type="button">
+					Copy!
+				</button>
 			</div>
 		</div>
 	</div>

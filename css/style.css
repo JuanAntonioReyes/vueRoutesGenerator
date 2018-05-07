@@ -1,10 +1,23 @@
 pre {
-	height: auto;
-	max-height: 250px;
+	height: 300px;
 	overflow: auto;
 	border: solid grey 2px;
+	margin-bottom: 0;
 /*	background-color: #eeeeee;
 	word-break: normal !important;
 	word-wrap: normal !important;
 	white-space: pre !important;*/
-}​
+}
+
+#textArea {
+	height: 300px;
+}
+
+.btn {
+	margin-top: 10px;
+}
+
+.container-fluid {
+	margin-top: 10px;
+}
+
