@@ -56,23 +56,25 @@ function generateComponents(lines) {
 		// Separate each line into words
 		lineWords = lines[i].trim().split(' ');
 
-		var startIndex;
-		if (lineWords[0] === '-') {
-			startIndex = 1;
-		} else {
-			startIndex = 0;
+		// Check if first character is "-" (The component is a child)
+		var firstChar = lineWords[0].charAt(0);
+		var isChild = (firstChar === '-');
+
+		if (isChild) {
+			lineWords[0] = lineWords[0].slice(1);
 		}
 
-		var nameText = '';
-		for (var j = startIndex, lw = lineWords.length; j < lw; j++) {
-			nameText += capitalize(lineWords[j]);
+		var componentName = '';
+		for (var j = 0, lw = lineWords.length; j < lw; j++) {
+			componentName += capitalize(lineWords[j]);
 		}
 
-		if (lineWords[0] === '-') {
-			components[components.length - 1].children.push(nameText);
+		if (isChild && (components.length > 0)) {
+			// If the component is a child and it have another component above it
+			components[components.length - 1].children.push(componentName);
 		} else {
 			var newComponent = {
-				text: nameText,
+				name: componentName,
 				children: []
 			};
 
@@ -87,9 +89,20 @@ function generateImports(components) {
 	var importLine, imports = '';
 
 	for (var i = 0, l = components.length; i < l; i++) {
-		importLine = "import " + components[i].text + " from './components/" + components[i].text + ".vue';\n";
+		importLine = "import " + components[i].name + " from './components/" + components[i].name + ".vue';\n";
 	
 		imports += importLine;
+
+		// If the component have childs
+		for (var j = 0, lc = components[i].children.length; j < lc; j++) {
+
+			var childName = components[i].children[j];
+			importLine = "import " + childName + " from './components/" + childName + ".vue';\n";
+
+			imports += importLine;
+
+		}
+
 	}
 
 	return imports;
@@ -100,16 +113,17 @@ function generateRoutes(components) {
 	var decapName;
 
 	for (var i = 0, l = components.length; i < l; i++) {
-		decapName = decapitalize(components[i].text);
+		decapName = decapitalize(components[i].name);
 
 		routes += "\t{ path: '/" + decapName + "' , component: "
-							+ components[i].text + " , name: '" + decapName + "Link'";
+							+ components[i].name + " , name: '" + decapName + "Link'";
 	
-		if (components[i].children.length !== 0) {
+		var lc = components[i].children.length;
+		if (lc !== 0) {
 			routes += ",\n\t\tchildren: [\n";
 
 			var decapChild;
-			for (var j = 0, lc = components[i].children.length; j < lc; j++) {
+			for (var j = 0; j < lc; j++) {
 				decapChild = decapitalize(components[i].children[j]);
 
 				routes += "\t\t\t{ path: '" + decapChild + "' , component: "
