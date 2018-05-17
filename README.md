@@ -1,4 +1,4 @@
-# vueRoutesGenerator
+# vueRoutesGenerator v2.1.1
 A generator to make the routes.js file for Vue.js (WIP)
 * [Test the generator](http://vue-routes-generator.surge.sh/) - Test it here! (WIP)
 

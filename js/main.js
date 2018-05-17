@@ -1,6 +1,7 @@
-/*alert("WIP!\nThis application is under development\n" 
+alert("WIP!\nThis application is under development\n"
+			+ "There is still some bugs, use this with caution\n"
 			+ "We still have so much to do, but you can get your basic \n"
-			+ "routes.js file without problem");*/
+			+ "routes.js file without problem");
 
 function capitalize(string) {
 		string = string.toLowerCase();
